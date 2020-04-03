@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sFI-bg-EPN">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="wxa-CY-k6Z">
+            <objects>
+                <viewController title="Home" id="sFI-bg-EPN" customClass="HomeViewController" customModule="XCoordinatorMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K7j-t0-5zY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6w-gB-jbl">
+                                <rect key="frame" x="186" y="164" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="put-OK-cRu">
+                                <rect key="frame" x="184" y="265" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxg-XV-cfb">
+                                <rect key="frame" x="184" y="375" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Y6w-gB-jbl" firstAttribute="top" secondItem="Cq1-az-eNP" secondAttribute="top" constant="120" id="Pq3-E1-O89"/>
+                            <constraint firstItem="Y6w-gB-jbl" firstAttribute="centerX" secondItem="K7j-t0-5zY" secondAttribute="centerX" id="Xbl-76-fKG"/>
+                            <constraint firstItem="put-OK-cRu" firstAttribute="centerX" secondItem="K7j-t0-5zY" secondAttribute="centerX" id="ZHx-59-NNO"/>
+                            <constraint firstItem="xxg-XV-cfb" firstAttribute="centerX" secondItem="K7j-t0-5zY" secondAttribute="centerX" id="a6a-CB-vVi"/>
+                            <constraint firstItem="put-OK-cRu" firstAttribute="top" secondItem="Y6w-gB-jbl" secondAttribute="bottom" constant="80" id="kV2-n9-G1P"/>
+                            <constraint firstItem="xxg-XV-cfb" firstAttribute="top" secondItem="put-OK-cRu" secondAttribute="bottom" constant="80" id="obO-cp-9Gs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cq1-az-eNP"/>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="put-OK-cRu" id="sED-Ih-ebW"/>
+                        <outlet property="detailButton" destination="xxg-XV-cfb" id="Ut7-qx-1Ux"/>
+                        <outlet property="label" destination="Y6w-gB-jbl" id="lIT-jN-y9h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vvu-cj-gul" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="51" y="149"/>
+        </scene>
+    </scenes>
+</document>
