@@ -18,6 +18,7 @@
 		10C49EE0243633F3009367BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C49EDF243633F3009367BD /* Assets.xcassets */; };
 		10C49EE3243633F3009367BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C49EE1243633F3009367BD /* LaunchScreen.storyboard */; };
 		10C49EEB2436351F009367BD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C49EEA2436351F009367BD /* AppCoordinator.swift */; };
+		10E722EB243B75810062901B /* PreviewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E722E9243B734F0062901B /* PreviewWrapper.swift */; };
 		2128ADCD09980E9C4F4CFFC2 /* Pods_XCoordinatorMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C218F72A80C2D768E030297 /* Pods_XCoordinatorMVVM.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		10C49EE2243633F3009367BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10C49EE4243633F3009367BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10C49EEA2436351F009367BD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		10E722E9243B734F0062901B /* PreviewWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewWrapper.swift; sourceTree = "<group>"; };
 		9C218F72A80C2D768E030297 /* Pods_XCoordinatorMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XCoordinatorMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BD9EFB87D48C97734EC076 /* Pods-XCoordinatorMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCoordinatorMVVM.release.xcconfig"; path = "Target Support Files/Pods-XCoordinatorMVVM/Pods-XCoordinatorMVVM.release.xcconfig"; sourceTree = "<group>"; };
 		EACCB1D9F99449747DDFF0B6 /* Pods-XCoordinatorMVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCoordinatorMVVM.debug.xcconfig"; path = "Target Support Files/Pods-XCoordinatorMVVM/Pods-XCoordinatorMVVM.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				1005CD1A243721AF00C63EE3 /* Subscriptions.swift */,
 				1005CD202437252B00C63EE3 /* UIButton+Combine.swift */,
 				1005CD222437259700C63EE3 /* UIControl+EventPublisher.swift */,
+				10E722E9243B734F0062901B /* PreviewWrapper.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10E722EB243B75810062901B /* PreviewWrapper.swift in Sources */,
 				1005CD212437252B00C63EE3 /* UIButton+Combine.swift in Sources */,
 				10C49EEB2436351F009367BD /* AppCoordinator.swift in Sources */,
 				1005CD1D2437220000C63EE3 /* HomeViewModel.swift in Sources */,

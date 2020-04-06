@@ -9,6 +9,7 @@
 import Foundation
 import XCoordinator
 import Reusable
+import UIKit
 
 enum AppRoute: Route {
     case home
@@ -30,6 +31,15 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
         switch route {
 
         case .home:
+
+            // Alternative way of instantiating with storyboard
+//            let storyboard = UIStoryboard(name: "HomeViewController", bundle: nil)
+//            let controller = storyboard.instantiateInitialViewController { (coder) -> HomeViewController? in
+//                // Inject view model here
+//                HomeViewController(coder: coder)
+//            }
+
+            // Using StoryboardBased
             let viewController = HomeViewController.instantiate()
             let viewModel = HomeViewModel(router: unownedRouter)
             viewController.bind(to: viewModel)

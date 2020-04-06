@@ -8,6 +8,13 @@
 
 import UIKit
 import XCoordinator
+import SwiftUI
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewWrapper(viewController: DetailViewController())
+    }
+}
 
 class DetailViewController: UIViewController {
 
