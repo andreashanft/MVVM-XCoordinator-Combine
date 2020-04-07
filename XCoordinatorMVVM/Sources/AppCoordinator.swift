@@ -46,8 +46,8 @@ class AppCoordinator: NavigationCoordinator<AppRoute> {
             return .push(viewController)
 
         case .detail:
-            let viewController = DetailViewController()
-            viewController.router = unownedRouter
+            let viewModel = DetailViewModel(router: unownedRouter)
+            let viewController = DetailViewController(viewModel: viewModel)
             return .push(viewController)
 
             // TODO: Find a better way with XCoordinator to have a generic "back" route

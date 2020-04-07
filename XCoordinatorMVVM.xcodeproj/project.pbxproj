@@ -13,6 +13,7 @@
 		1005CD1F243722C400C63EE3 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1005CD1E243722C400C63EE3 /* HomeViewController.storyboard */; };
 		1005CD212437252B00C63EE3 /* UIButton+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1005CD202437252B00C63EE3 /* UIButton+Combine.swift */; };
 		1005CD232437259700C63EE3 /* UIControl+EventPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1005CD222437259700C63EE3 /* UIControl+EventPublisher.swift */; };
+		101EA98A243CBE10008306A0 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101EA989243CBE10008306A0 /* DetailViewModel.swift */; };
 		10C49ED7243633F1009367BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C49ED6243633F1009367BD /* AppDelegate.swift */; };
 		10C49EDB243633F1009367BD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C49EDA243633F1009367BD /* DetailViewController.swift */; };
 		10C49EE0243633F3009367BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C49EDF243633F3009367BD /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		1005CD1E243722C400C63EE3 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		1005CD202437252B00C63EE3 /* UIButton+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Combine.swift"; sourceTree = "<group>"; };
 		1005CD222437259700C63EE3 /* UIControl+EventPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+EventPublisher.swift"; sourceTree = "<group>"; };
+		101EA989243CBE10008306A0 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		10C49ED3243633F1009367BD /* XCoordinatorMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XCoordinatorMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C49ED6243633F1009367BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10C49EDA243633F1009367BD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				10C49EDA243633F1009367BD /* DetailViewController.swift */,
+				101EA989243CBE10008306A0 /* DetailViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				10E722EB243B75810062901B /* PreviewWrapper.swift in Sources */,
 				1005CD212437252B00C63EE3 /* UIButton+Combine.swift in Sources */,
 				10C49EEB2436351F009367BD /* AppCoordinator.swift in Sources */,
+				101EA98A243CBE10008306A0 /* DetailViewModel.swift in Sources */,
 				1005CD1D2437220000C63EE3 /* HomeViewModel.swift in Sources */,
 				1005CD232437259700C63EE3 /* UIControl+EventPublisher.swift in Sources */,
 				1005CD1B243721AF00C63EE3 /* Subscriptions.swift in Sources */,
