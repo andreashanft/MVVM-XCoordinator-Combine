@@ -18,7 +18,7 @@ extension UIControl {
 
         let control: UIControl
         let event: UIControl.Event
-        let subject: PassthroughSubject<UIControl, Never>
+        let subject: PassthroughSubject<Void, Never>
 
         init(control: UIControl, event: UIControl.Event) {
             self.control = control
@@ -36,13 +36,13 @@ extension UIControl {
 
         @objc
         func handleEvent(from sender: UIControl) {
-            subject.send(sender)
+            subject.send(())
         }
     }
 
     struct ControlEventPublisher: Publisher {
 
-        typealias Output = UIControl
+        typealias Output = Void
         typealias Failure = Never
 
         let control: UIControl
@@ -54,7 +54,7 @@ extension UIControl {
         }
 
         func receive<S>(subscriber: S)
-            where S : Subscriber,
+            where S: Subscriber,
             S.Failure == Failure,
             S.Input == Output {
                 let observer = EventObserver(control: control, event: event)
@@ -71,5 +71,9 @@ extension UIControl {
 
     func eventPublisher(for event: UIControl.Event) -> ControlEventPublisher {
         return ControlEventPublisher(control: self, event: event)
+    }
+
+    var onTap: ControlEventPublisher {
+        ControlEventPublisher(control: self, event: .touchUpInside)
     }
 }
