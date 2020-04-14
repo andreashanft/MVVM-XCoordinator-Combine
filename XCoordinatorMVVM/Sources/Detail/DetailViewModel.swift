@@ -14,12 +14,12 @@ final class DetailViewModel {
 
     // MARK: Outputs
 
-    @Published private(set) var outHeadlineText: String? = "Much Detail! Such Beauty!"
-    @Published private(set) var outButtonText: String? = "↩️ Back"
+    @Published private(set) var headlineText: String? = "Much Detail! Such Beauty!"
+    @Published private(set) var buttonText: String? = "↩️ Back"
 
     // MARK: Inputs
 
-    var inBackAction: Void = () {
+    var backAction: Void = () {
         didSet {
             router?.trigger(.back)
         }

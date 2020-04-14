@@ -10,12 +10,22 @@ import UIKit
 import XCoordinator
 import SwiftUI
 
-// Provides a preview using the Canvas
+
+#if DEBUG
+// Provides two previews for light and dark mode using the Canvas
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        PreviewWrapper(viewController: UINavigationController(rootViewController: DetailViewController(viewModel: DetailViewModel())))
-    }
+   static var previews: some View {
+      Group {
+         PreviewWrapper(viewController: UINavigationController(rootViewController: DetailViewController(viewModel: DetailViewModel())))
+            .environment(\.colorScheme, .light)
+
+         PreviewWrapper(viewController: UINavigationController(rootViewController: DetailViewController(viewModel: DetailViewModel())))
+            .environment(\.colorScheme, .dark)
+      }
+   }
 }
+#endif
+
 
 // This is just a very simple mock to showcase styling.
 enum DesignSystem {
@@ -52,58 +62,27 @@ enum DesignSystem {
         static let `default`: CGFloat = 8.0
     }
 
-    enum LabelStyle {
-        case h1
-        case h2
-        case bodytext
+    struct LabelStyle {
+        let font: Font
+        let fontSize: FontSize
 
-        var font: Font {
-            switch self {
-            case .h1:       return .palatino
-            case .h2:       return .palatino
-            case .bodytext: return .thonburi
-            }
-        }
-
-        var fontSize: FontSize {
-            switch self {
-            case .h1:       return .veryLarge
-            case .h2:       return .large
-            case .bodytext: return .regular
-            }
-        }
+        static let h1 = LabelStyle(font: .palatino, fontSize: .veryLarge)
+        static let h2 = LabelStyle(font: .palatino, fontSize: .large)
     }
 
-    enum ButtonStyle {
-        case ´default´
-        case destructive
+    struct ButtonStyle {
+        let font: Font
+        let fontSize: FontSize
+        let titleColor: UIColor
+        let backgroundColor: UIColor
 
-        var font: Font {
-            switch self {
-            default:        return .palatino
-            }
-        }
-
-        var fontSize: FontSize {
-            switch self {
-            default:        return .regular
-            }
-        }
-
-        var titleColor: UIColor {
-            switch self {
-            case .destructive:  return .themeWhite
-            default:            return .themeBlack
-            }
-        }
-
-        var backgroundColor: UIColor {
-            switch self {
-            case .destructive:  return .error
-            default:            return .themeWhite
-            }
-        }
+        static let ´default´ = ButtonStyle(font: .palatino, fontSize: .regular, titleColor: .themeBlack, backgroundColor: .themeWhite)
+        static let destructive = ButtonStyle(font: .palatino, fontSize: .regular, titleColor: .themeWhite, backgroundColor: .error)
     }
+}
+
+extension DesignSystem.LabelStyle {
+    static let bodytext = DesignSystem.LabelStyle(font: .thonburi, fontSize: .regular)
 }
 
 
@@ -135,6 +114,16 @@ extension UIColor {
 }
 
 extension UIView {
+
+    var translatesAutoresizingMaskIntoConstraintsForSubviews: Bool {
+        set {
+            subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = newValue }
+        }
+        get {
+            subviews.first?.translatesAutoresizingMaskIntoConstraints ?? false
+        }
+    }
+
     func activate(_ constraints: [NSLayoutConstraint]) {
         self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(constraints)
@@ -144,9 +133,9 @@ extension UIView {
 
 class DetailView: UIView {
 
-    var label = UILabel()
-    var button = UIButton()
-    var stackView = UIStackView()
+    let label = UILabel()
+    let button = UIButton()
+    let stackView = UIStackView()
 
     init() {
         super.init(frame: .zero)
@@ -173,9 +162,11 @@ class DetailView: UIView {
         stackView.spacing = DesignSystem.Spacing.default
         addSubview(stackView)
 
+        let firstLabelStyle = DesignSystem.LabelStyle(font: .palatino, fontSize: .small)
         for i in 0...3 {
             let demoLabel = UILabel()
-            demoLabel.apply(style: .bodytext)
+            let style = i == 0 ? firstLabelStyle : .bodytext
+            demoLabel.apply(style: style)
             demoLabel.numberOfLines = i % 2 == 0 ? 0 : 1
             demoLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             stackView.addArrangedSubview(demoLabel)
@@ -186,7 +177,6 @@ class DetailView: UIView {
         // Only extract magic numbers when they are used more than once
         let margin: CGFloat = 16.0
         label.activate([
-            label.centerXAnchor.constraint(equalTo: centerXAnchor),
             label.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 42),
             label.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: margin),
             label.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: margin)
@@ -234,6 +224,17 @@ class DetailViewController: UIViewController {
 
         setup()
         setupBindings()
+
+//        switch traitCollection.userInterfaceStyle {
+//        case .light: //light mode
+//            view.backgroundColor = .red
+//        case .dark: //dark mode
+//            view.backgroundColor = .green
+//        case .unspecified:
+//            view.backgroundColor = .blue
+//        @unknown default:
+//            fatalError()
+//        }
     }
 
     private func setup() {
@@ -250,11 +251,11 @@ class DetailViewController: UIViewController {
         subscriptions.add([
 
             // Outputs
-            viewModel.$outHeadlineText.assign(to: \.label.text, on: detailView),
-            viewModel.$outButtonText.assign(to: \.button.defaultTitle, on: detailView),
+            viewModel.$headlineText.assign(to: \.label.text, on: detailView),
+            viewModel.$buttonText.assign(to: \.button.defaultTitle, on: detailView),
 
             // Inputs
-            detailView.button.onTap.assign(to: \.inBackAction, on: viewModel),
+            detailView.button.onTap.assign(to: \.backAction, on: viewModel),
         ])
     }
 }
