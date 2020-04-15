@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Helpers
 
     private func configureUI() {
-        UIView.appearance().overrideUserInterfaceStyle = .light
+        // Some global settings...
+//        UIView.appearance().overrideUserInterfaceStyle = .light
     }
 }

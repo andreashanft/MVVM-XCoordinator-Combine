@@ -16,6 +16,10 @@ final class DetailViewModel {
 
     @Published private(set) var headlineText: String? = "Much Detail! Such Beauty!"
     @Published private(set) var buttonText: String? = "↩️ Back"
+    @Published private(set) var textLabels: [String] = [
+        "Bavaria ipsum dolor sit amet Schneid Ledahosn wolpern",
+        "Etza muass sodala Kirwa bitt, nimma.",
+        "Spuiratz Baamwach ebba, obandeln aba trihöleridi dijidiholleri!"]
 
     // MARK: Inputs
 
