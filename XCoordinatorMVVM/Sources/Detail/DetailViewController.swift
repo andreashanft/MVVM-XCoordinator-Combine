@@ -156,7 +156,12 @@ class DetailView: UIView {
         backgroundColor = .defaultBackground
 
         label.apply(style: .h1)
+        label.backgroundColor = resolveBackgroundColor(with: traitCollection)
         addSubview(label)
+
+        let resolvedColor = UIColor.borderHighlight.resolvedColor(with: traitCollection)
+        button.layer.borderWidth = 3.0
+        button.layer.borderColor = resolvedColor.cgColor
         button.apply(style: .destructive)
         addSubview(button)
 
@@ -200,6 +205,20 @@ class DetailView: UIView {
             stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
         ])
     }
+
+    private func resolveBackgroundColor(with traitCollection: UITraitCollection) -> UIColor {
+        // Example how to manually adjust appearance based on interface style
+        switch traitCollection.userInterfaceStyle {
+        case .light:
+            return .red
+        case .dark:
+            return .green
+        case .unspecified:
+            return .blue
+        @unknown default:
+            fatalError()
+        }
+    }
 }
 
 
@@ -238,24 +257,6 @@ class DetailViewController: UIViewController {
         title = "Detail 🔍"
         // tabBarItem = ...
         // supportedInterfaceOrientations = ...
-
-        let resolvedColor = UIColor.borderHighlight.resolvedColor(with: traitCollection)
-        detailView.button.layer.borderWidth = 3.0
-        detailView.button.layer.borderColor = resolvedColor.cgColor
-
-/*
-        // Manually adjust colors based on interface style
-        switch traitCollection.userInterfaceStyle {
-        case .light: //light mode
-            view.backgroundColor = .red
-        case .dark: //dark mode
-            view.backgroundColor = .green
-        case .unspecified:
-            view.backgroundColor = .blue
-        @unknown default:
-            fatalError()
-        }
- */
     }
 
     private func setupBindings() {
