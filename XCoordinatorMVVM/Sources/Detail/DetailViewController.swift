@@ -9,7 +9,7 @@
 import UIKit
 import XCoordinator
 import SwiftUI
-
+import Combine
 
 #if DEBUG
 // Provides two previews for light and dark mode using the Canvas
@@ -269,7 +269,7 @@ class DetailViewController: UIViewController {
             viewModel.$textLabels.assign(to: \.labels, on: detailView),
 
             // Inputs
-            detailView.button.onTap.assign(to: \.backAction, on: viewModel),
+            detailView.button.onTap.execute(viewModel.backAction)
         ])
     }
 }

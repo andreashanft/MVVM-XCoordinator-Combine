@@ -23,10 +23,8 @@ final class DetailViewModel {
 
     // MARK: Inputs
 
-    var backAction: Void = () {
-        didSet {
-            router?.trigger(.back)
-        }
+    func backAction() {
+        router?.trigger(.back)
     }
 
     // MARK: Stored properties

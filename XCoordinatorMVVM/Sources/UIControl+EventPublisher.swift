@@ -10,6 +10,13 @@ import Foundation
 import UIKit
 import Combine
 
+/// Syntactic sugar to change the syntax for better readability
+extension Publisher where Self.Failure == Never {
+    public func execute(_ receiveValue: @escaping ((Self.Output) -> Void)) -> AnyCancellable {
+        return sink(receiveValue: receiveValue)
+    }
+}
+
 /// Add an event publisher to UIControls
 /// From: https://forums.swift.org/t/a-uicontrol-event-publisher-example/26215/19
 extension UIControl {
